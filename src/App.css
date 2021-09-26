@@ -39,7 +39,7 @@ header{
 .content{
 	flex: 1;
 	margin-top: var(--heightHead);
-	padding: 5em;
+	padding: 2em;
 	/* overflow-x: hidden;
 	overflow-y: visible; */
 }

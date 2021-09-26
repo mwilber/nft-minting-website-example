@@ -9,7 +9,7 @@ export default function Mint(props) {
 	const [assetURIs, setAssetURIs] = useState([]);
 
 	// Populate the assetURIs variable with tokens that are not yet minted.
-	const CheckassetURIs = async () => {
+	const CheckAssetURIs = async () => {
 		let uris = [];
 
 		// For this demo there are only 4 assets, named sequentially. 
@@ -21,7 +21,7 @@ export default function Mint(props) {
 			if(tokenId === "0") uris.push(uri);
 		}
 
-		// Update the list of available token URIs
+		// Update the list of available asset URIs
 		if(uris.length) setAssetURIs([...uris]);
 	}
 
@@ -49,7 +49,7 @@ export default function Mint(props) {
 			console.log('result', result);
 
 			// Refresh the gallery
-			CheckassetURIs();
+			CheckAssetURIs();
 
 		}catch(e){
 			console.error('There was a problem while minting', e);
@@ -61,12 +61,12 @@ export default function Mint(props) {
 	if(!props.contract) return (<div className="page error">Contract Not Available</div>);
 
 	// Set up the list of available token URIs when the component mounts.
-	if(!assetURIs.length) CheckassetURIs();
+	if(!assetURIs.length) CheckAssetURIs();
 
 	// Display the minting gallery
 	return (
 		<div className="page mint">
-			<p>Click on an image to mint a token</p>
+			<h2>Click on an image to mint a token</h2>
 			{assetURIs.map((uri, idx) => (
 					<div onClick={() => DoMint(uri)} key={idx}>
 						<img src={uri.replace('.json', '.png')} alt={'exobit_'+(idx+1)} />

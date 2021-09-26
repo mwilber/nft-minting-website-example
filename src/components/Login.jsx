@@ -10,8 +10,6 @@ export default function Login(props) {
 	const DoConnect = async () => {
 
 		console.log('Connecting....');
-
-
 		try {
 			// Get network provider and web3 instance.
 			const web3 = new Web3(Web3.givenProvider || "ws://localhost:8545");
@@ -24,7 +22,6 @@ export default function Login(props) {
 				ExobitsABI, 
 				contractAddress
 			);
-			console.log('connected', accounts, instance);
 			props.callback({ web3, accounts, contract: instance });
 
 		} catch (error) {
@@ -33,10 +30,9 @@ export default function Login(props) {
 		}
 	};
 
-	if(!props.connected){
-		return <button className="login" onClick={DoConnect}>Connect Wallet</button>;
-	} else {
-		console.log('address', props.address);
-		return <>[{props.address.slice(0,6)}]</>;
-	}
+	// If not connected, display the connect button.
+	if(!props.connected) return <button className="login" onClick={DoConnect}>Connect Wallet</button>;
+
+	// Display the wallet address. Truncate it to save space.
+	return <>[{props.address.slice(0,6)}]</>;
 }
