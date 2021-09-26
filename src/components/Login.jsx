@@ -1,7 +1,7 @@
 import React from "react";
 import Web3 from "web3";
 
-import ExobitsABI from '../contract/Exobits.json';
+import ExobitsABI from '../contract/ExobitsDemo.json';
 
 export default function Login(props) {
 

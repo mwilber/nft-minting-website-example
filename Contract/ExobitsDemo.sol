@@ -7,17 +7,23 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-contract Exobits is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
+contract ExobitsDemo is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
     
-    constructor() ERC721("ExoBits", "XOB") {}
+    mapping(string => uint256) public _uriId;
+    
+    constructor() ERC721("ExoBitsDemo", "XOBD") {}
     
     function CustomMint(string memory _uri) public payable returns (uint256) {
+        
+        require(_uriId[_uri] == 0, "This key is already minted");
+        
         _tokenIds.increment();
         uint256 newItemId = _tokenIds.current();
 
         _safeMint(msg.sender, newItemId);
+        _uriId[_uri] = newItemId;
         _setTokenURI(newItemId, _uri);
 
         return newItemId;
@@ -54,6 +60,10 @@ contract Exobits is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
         returns (bool)
     {
         return super.supportsInterface(interfaceId);
+    }
+    
+    function tokenByUri(string memory _uri) external view returns(uint256) {
+        return _uriId[_uri];
     }
 
     function tokensOfOwner(address _owner) external view returns(uint256[] memory ownerTokens) {
