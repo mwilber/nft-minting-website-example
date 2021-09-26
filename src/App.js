@@ -72,13 +72,13 @@ function App() {
 				<div className="content">
 					<Switch>
 						<Route path="/mytokens">
-							<MyTokens></MyTokens>
+							<MyTokens contract={web3props.contract} address={walletAddress}></MyTokens>
 						</Route>
 						<Route path="/gallery">
 							<Gallery contract={web3props.contract}></Gallery>
 						</Route>
 						<Route path="/mint">
-							<Mint></Mint>
+							<Mint contract={web3props.contract} address={walletAddress}></Mint>
 						</Route>
 						<Route path="/">
 							<Home />

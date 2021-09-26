@@ -28,7 +28,7 @@ export default function Gallery(props) {
 
 	// Handle contract unavailable. 
 	// This is an extra precaution since the user shouldn't be able to get to this page without connecting.
-	if(totalSupply === null) return (<div className="page error">Contract Not Available</div>);
+	if(!props.contract) return (<div className="page error">Contract Not Available</div>);
 
 	// Contract should be good to go so let's set up a list of URIs.
 	getTokenURIs(totalSupply);
