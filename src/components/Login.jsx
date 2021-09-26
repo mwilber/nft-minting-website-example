@@ -1,11 +1,11 @@
 import React from "react";
 import Web3 from "web3";
 
-import ExobitsContract from '../contract/Exobits.json';
+import ExobitsABI from '../contract/Exobits.json';
 
 export default function Login(props) {
 
-	const contractAddress = "0x5bbec211972328487e8859740aade132ba7a1916";
+	const contractAddress = "0x7257c1b422a50fa54166E65467Ba7561af53fB9b";
 
 	const DoConnect = async () => {
 
@@ -21,7 +21,7 @@ export default function Login(props) {
 			const accounts = await web3.eth.getAccounts();
 			// Get an instance of the contract sop we can call our contract functions
 			const instance = new web3.eth.Contract(
-				ExobitsContract.abi, 
+				ExobitsABI, 
 				contractAddress
 			);
 			console.log('connected', accounts, instance);
