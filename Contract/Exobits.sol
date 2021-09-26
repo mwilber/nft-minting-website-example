@@ -24,7 +24,7 @@ contract Exobits is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
     }
     
     function _baseURI() internal pure override returns (string memory) {
-        return "http://localhost:3000/";
+        return "http://localhost:3000";
     }
     
     function _burn(uint256 tokenId) internal override(ERC721, ERC721URIStorage) {

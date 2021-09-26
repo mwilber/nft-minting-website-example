@@ -32,7 +32,7 @@ export default function Mint(props) {
 		<div className="page mint">
 			<p>Click on an image to mint a token</p>
 			{[...Array(4)].map((x, idx) => (
-					<div onClick={() => DoMint('exobit_'+(idx+1)+'.json')} key={idx}>
+					<div onClick={() => DoMint('/token_data/exobit_'+(idx+1)+'.json')} key={idx}>
 						<img src={'/token_data/exobit_'+(idx+1)+'.png'} alt={'exobit_'+(idx+1)} />
 					</div>
 				)
