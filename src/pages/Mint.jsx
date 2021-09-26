@@ -1,25 +1,28 @@
 import React, { useState } from 'react';
 
+// IMPORTANT NOTE: In this example, the URI is used as a unique key to identify
+// a token associated with an asset. This is fine for demonstration, but in a 
+// production project you should have a unique key associated with the asset
+// and store that in the contract along with the URI.
 export default function Mint(props) {
 
-	const [tokenURIs, setTokenURIs] = useState([]);
+	const [assetURIs, setAssetURIs] = useState([]);
 
-	// Populate the tokenURIs variable with tokens that are not yet minted.
-	const CheckTokenURIs = async () => {
+	// Populate the assetURIs variable with tokens that are not yet minted.
+	const CheckassetURIs = async () => {
 		let uris = [];
 
-		// For this demo there are only 4 images named sequentially. 
+		// For this demo there are only 4 assets, named sequentially. 
 		for(let idx = 1; idx <= 4; idx++ ){
 			let uri = '/token_data/exobit_'+idx+'.json';
-			// Call the contract and get the id of the uri. If the uri doesn't belong to a token, it will return 0
+			// Call the contract and get the id of the uri. If the uri doesn't belong to a token, it will return 0.
 			let tokenId = await props.contract.methods.tokenByUri(uri).call();
-			// The token ID comes in as a string.
-			if(tokenId === "0")
-				uris.push(uri);
+			// The token ID comes in as a string. "0" means that uri is not associated with a token.
+			if(tokenId === "0") uris.push(uri);
 		}
 
 		// Update the list of available token URIs
-		if(uris.length) setTokenURIs([...uris]);
+		if(uris.length) setAssetURIs([...uris]);
 	}
 
 	// Handle the click to mint
@@ -46,7 +49,7 @@ export default function Mint(props) {
 			console.log('result', result);
 
 			// Refresh the gallery
-			CheckTokenURIs();
+			CheckassetURIs();
 
 		}catch(e){
 			console.error('There was a problem while minting', e);
@@ -58,13 +61,13 @@ export default function Mint(props) {
 	if(!props.contract) return (<div className="page error">Contract Not Available</div>);
 
 	// Set up the list of available token URIs when the component mounts.
-	if(!tokenURIs.length) CheckTokenURIs();
+	if(!assetURIs.length) CheckassetURIs();
 
 	// Display the minting gallery
 	return (
 		<div className="page mint">
 			<p>Click on an image to mint a token</p>
-			{tokenURIs.map((uri, idx) => (
+			{assetURIs.map((uri, idx) => (
 					<div onClick={() => DoMint(uri)} key={idx}>
 						<img src={uri.replace('.json', '.png')} alt={'exobit_'+(idx+1)} />
 					</div>
