@@ -57,10 +57,10 @@ function App() {
 										<Link to="/mint">Mint</Link>
 									</li>
 									<li>
-									<Link to="/gallery">Gallery</Link>
+										<Link to="/gallery">Gallery</Link>
 									</li>
 									<li>
-									<Link to="/mytokens">My Exobits</Link>
+										<Link to="/mytokens">My Exobits</Link>
 									</li>
 								</>}
 								<li>
@@ -75,7 +75,7 @@ function App() {
 							<MyTokens></MyTokens>
 						</Route>
 						<Route path="/gallery">
-							<Gallery></Gallery>
+							<Gallery contract={web3props.contract}></Gallery>
 						</Route>
 						<Route path="/mint">
 							<Mint></Mint>
