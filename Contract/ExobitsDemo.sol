@@ -17,6 +17,8 @@ contract ExobitsDemo is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
     
     function CustomMint(string memory _uri) public payable returns (uint256) {
         
+        // Ideally, you would pass in some sort of unique identifier to reference your token
+        // for this demo we're just repurposing the token URI
         require(_uriId[_uri] == 0, "This key is already minted");
         
         _tokenIds.increment();

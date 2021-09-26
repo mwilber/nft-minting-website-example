@@ -5,7 +5,7 @@ import ExobitsABI from '../contract/ExobitsDemo.json';
 
 export default function Login(props) {
 
-	const contractAddress = "0x7257c1b422a50fa54166E65467Ba7561af53fB9b";
+	const contractAddress = "0x6901ee925D2FD8C196B8FccE6233Aa8D37958DE9";
 
 	const DoConnect = async () => {
 
