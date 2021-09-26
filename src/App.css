@@ -98,3 +98,11 @@ header nav ul li{
 	margin-right: 20px;
 	font-size: 1em;
 }
+
+/*
+	LOGIN
+*/
+button.login{
+	font-size: 14px;
+  margin-top: -16px;
+}
