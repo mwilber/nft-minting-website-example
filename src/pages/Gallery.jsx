@@ -6,7 +6,7 @@ export default function Gallery(props) {
 	const [tokenURIs, setTokenURIs] = useState([]);
 
 	// Get the total number of minted tokens in the contract
-	const getTotalSupply = async () => {
+	const GetTotalSupply = async () => {
 		if(!props || !props.contract) return;
 		const totalSupply = await props.contract.methods.totalSupply().call();
 		// totalSupply returns a string
@@ -14,7 +14,7 @@ export default function Gallery(props) {
 	};
 
 	// Populate the setTokenURIs variable with tokens that are minted.
-	const getTokenURIs = async (totalSupply) => {
+	const GetTokenURIs = async (totalSupply) => {
 		if(!totalSupply) return;
 		let tokens = [];
 		// Taking advantage of the fact that token IDs are an auto-incrementing integer starting with 1.
@@ -45,10 +45,10 @@ export default function Gallery(props) {
 	if(!props.contract) return (<div className="page error">Contract Not Available</div>);
 	
 	// Attempt to set totalSupply (total number of tokens stored in the contract).
-	if(!totalSupply) getTotalSupply();
+	if(!totalSupply) GetTotalSupply();
 
 	// Set up the list of available token URIs when the component mounts.
-	if(totalSupply && !tokenURIs.length) getTokenURIs(totalSupply);
+	if(totalSupply && !tokenURIs.length) GetTokenURIs(totalSupply);
 
 	// Display the token gallery
 	return (

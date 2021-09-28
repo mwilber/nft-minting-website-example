@@ -6,14 +6,14 @@ export default function MyTokens(props) {
 	const [tokenURIs, setTokenURIs] = useState([]);
 
 	// Populate userTokens with an array of token IDs belonging to the curent wallet address.
-	const getUserTokens = async () => {
+	const GetUserTokens = async () => {
 		if(!props || !props.contract) return;
 		const userTokens = await props.contract.methods.tokensOfOwner(props.address).call();
 		setUserTokens(userTokens);
 	};
 
 	// Populate the setTokenURIs variable with token URIs belonging to the curent wallet address.
-	const getTokenURIs = async (userTokens) => {
+	const GetTokenURIs = async (userTokens) => {
 		if(!userTokens || !userTokens.length) return;
 		let tokens = [];
 		// Taking advantage of the fact that token IDs are an auto-incrementing integer starting with 1.
@@ -44,10 +44,10 @@ export default function MyTokens(props) {
 	if(!props.contract) return (<div className="page error">Contract Not Available</div>);
 
 	// Get all token IDs associated with the wallet address when the component mounts.
-	if(!userTokens) getUserTokens();
+	if(!userTokens) GetUserTokens();
 
 	// Set up the list of available token URIs when the component mounts.
-	if(userTokens && !tokenURIs.length) getTokenURIs(userTokens);
+	if(userTokens && !tokenURIs.length) GetTokenURIs(userTokens);
 
 	// Display the personal token gallery
 	return (
