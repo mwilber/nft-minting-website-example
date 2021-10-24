@@ -1,11 +1,11 @@
 import React from "react";
 import Web3 from "web3";
 
-import ExobitsABI from '../contract/ExobitsDemo.json';
+import ExobitsABI from '../contract/ReExoBits.json';
 
 export default function Login(props) {
 
-	const contractAddress = "0x6901ee925D2FD8C196B8FccE6233Aa8D37958DE9";
+	const contractAddress = "0xE7046373c0D9e74529362B0A98F9F7784bF46B4D";
 
 	const DoConnect = async () => {
 

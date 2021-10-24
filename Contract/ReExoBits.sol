@@ -7,7 +7,7 @@ import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 
-contract ExobitsDemo is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
+contract ReExoBits is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
 	using Counters for Counters.Counter;
 	Counters.Counter private _tokenIds;
 	
@@ -15,7 +15,7 @@ contract ExobitsDemo is ERC721, ERC721Enumerable, ERC721URIStorage, Ownable {
 	// for this demo we're just repurposing the token URI
 	mapping(string => uint256) public _uriId;
 	
-	constructor() ERC721("ExoBitsDemo", "XOBD") {}
+	constructor() ERC721("ReExoBits", "XOBD") {}
 	
 	function CustomMint(string memory _uri) public payable returns (uint256) {
 		
