@@ -1,9 +1,9 @@
-# ![ReExoBits Logo](https://www.greenzeta.com/wp-content/uploads/{link}) nft-minting-website-example
+# ![ReExoBits Logo](http://greenzeta.com/wp-content/uploads/2021/11/article_icon.png) nft-minting-website-example
 ## ReExoBits
 
 A complete NFT website with Minting and Gallery features. Based off of the ExoBits website: [ExoBitsNFT.com](https://exobitsnft.com/). This project accompanies the medium article ["How To Build An NFT Website"](#article)
 
-![ReExoBits ScreenShot](https://www.greenzeta.com/wp-content/uploads/{link})
+![ReExoBits ScreenShot](http://greenzeta.com/wp-content/uploads/2021/11/reexobits_preview.png)
 
 ## Table of contents
 - [The Article](#article)
@@ -13,9 +13,9 @@ A complete NFT website with Minting and Gallery features. Based off of the ExoBi
 - [React](#react)
 
 ## Article
-This project accompanies ["How To Build An NFT Website"]({link}) on Medium. The article explains everything you need to get started building an NFT website. Including: Contract deployment and interaction with a live contract using [Web3.js]({link}). Though this project stands by itself, it is recommended that you follow the full tutorial for a complete understanding.
+This project accompanies ["How To Build An NFT Website"]({link}) on Medium. The article explains everything you need to get started building an NFT website. Including: Contract deployment and interaction with a live contract using [Web3.js](https://github.com/ChainSafe/web3.js). Though this project stands by itself, it is recommended that you follow the full tutorial for a complete understanding.
 
-![Article ScreenShot](https://www.greenzeta.com/wp-content/uploads/{link})
+![Article Header](http://greenzeta.com/wp-content/uploads/2021/11/article_header.png)
 
 ## Setup
 Clone this repo and enter the project directory:
